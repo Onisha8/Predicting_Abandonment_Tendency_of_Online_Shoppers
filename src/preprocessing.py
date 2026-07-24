@@ -14,6 +14,10 @@ def load_raw_data(path: str = DATA_PATH) -> pd.DataFrame:
     leak into training (this was a bug in the previous version, where
     StandardScaler was fit on the full dataset before splitting)."""
     df = pd.read_csv(path)
+    before = len(df)
+    df = df.drop_duplicates()
+    if before != len(df):
+        print(f"Dropped {before - len(df)} exact duplicate rows.")
     missing = df.isnull().sum().sum()
     if missing:
         raise ValueError(

@@ -1,0 +1,37 @@
+{
+  "selected_by": "cv_pr_auc",
+  "best_model": "XGBoost",
+  "params": {
+    "Logistic Regression": {
+      "C": 0.03334792728637585,
+      "penalty": "l1",
+      "solver": "liblinear"
+    },
+    "KNN": {
+      "n_neighbors": 46,
+      "p": 1,
+      "weights": "distance"
+    },
+    "Decision Tree": {
+      "criterion": "entropy",
+      "max_depth": 15,
+      "min_samples_leaf": 48,
+      "min_samples_split": 16
+    },
+    "Random Forest": {
+      "max_depth": 8,
+      "max_features": 0.5,
+      "min_samples_leaf": 15,
+      "n_estimators": 250
+    },
+    "XGBoost": {
+      "colsample_bytree": 0.7323592099410596,
+      "learning_rate": 0.012413189635294229,
+      "max_depth": 7,
+      "min_child_weight": 8,
+      "n_estimators": 392,
+      "reg_lambda": 1.5446089075047076,
+      "subsample": 0.8550229885420852
+    }
+  }
+}

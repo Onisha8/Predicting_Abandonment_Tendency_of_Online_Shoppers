@@ -1,0 +1,71 @@
+{
+  "model": "XGBClassifier",
+  "assumptions": {
+    "avg_order_value": 100.0,
+    "gross_margin": 0.3,
+    "discount_value": 10.0,
+    "contact_cost": 0.5,
+    "recovery_rate": 0.1
+  },
+  "theoretical_breakeven_threshold_if_calibrated": 0.125,
+  "threshold_chosen_on": "out-of-fold training predictions",
+  "test": {
+    "profit_optimal_threshold": {
+      "threshold": 0.14,
+      "profit_per_1000_sessions": 829.5780417861532,
+      "share_of_sessions_targeted": 0.6677591151167555,
+      "abandoners_reached_pct": 0.7746478873239436,
+      "buyers_given_unneeded_discount_pct": 0.09162303664921466
+    },
+    "default_0.5_threshold": {
+      "threshold": 0.5,
+      "profit_per_1000_sessions": 691.9295370749693,
+      "share_of_sessions_targeted": 0.8381810733306022,
+      "abandoners_reached_pct": 0.9378338999514327,
+      "buyers_given_unneeded_discount_pct": 0.3010471204188482
+    },
+    "target_everyone": {
+      "threshold": 1.000000001,
+      "profit_per_1000_sessions": -377.9188857025809,
+      "share_of_sessions_targeted": 1.0,
+      "abandoners_reached_pct": 1.0,
+      "buyers_given_unneeded_discount_pct": 1.0
+    },
+    "target_nobody": {
+      "threshold": 0.0,
+      "profit_per_1000_sessions": 0.0,
+      "share_of_sessions_targeted": 0.0,
+      "abandoners_reached_pct": 0.0,
+      "buyers_given_unneeded_discount_pct": 0.0
+    },
+    "perfect_model": {
+      "profit_per_1000_sessions": 1265.2601392871775
+    }
+  },
+  "sensitivity_to_recovery_rate": [
+    {
+      "recovery_rate": 0.05,
+      "chosen_threshold": 0.07,
+      "test_profit_per_1000": 216.09995903318313,
+      "test_profit_per_1000_at_0.5": -99.1396968455551
+    },
+    {
+      "recovery_rate": 0.1,
+      "chosen_threshold": 0.14,
+      "test_profit_per_1000": 829.5780417861532,
+      "test_profit_per_1000_at_0.5": 691.9295370749693
+    },
+    {
+      "recovery_rate": 0.15,
+      "chosen_threshold": 0.31,
+      "test_profit_per_1000": 1547.7263416632527,
+      "test_profit_per_1000_at_0.5": 1482.9987709954937
+    },
+    {
+      "recovery_rate": 0.2,
+      "chosen_threshold": 0.4,
+      "test_profit_per_1000": 2315.6493240475215,
+      "test_profit_per_1000_at_0.5": 2274.068004916018
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import os
 
 from imblearn.over_sampling import SMOTE
 from imblearn.pipeline import Pipeline as ImbPipeline
+from sklearn.base import clone
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
@@ -31,22 +32,27 @@ def build_models():
     }
 
 
+def make_pipeline(preprocessor, clf):
+    """preprocessor -> SMOTE -> classifier, as one estimator. SMOTE is applied
+    *inside* the pipeline so it only ever resamples the training fold -- it
+    never touches X_test or held-out CV folds."""
+    return ImbPipeline(steps=[
+        ("preprocess", clone(preprocessor)),
+        ("smote", SMOTE(random_state=RANDOM_STATE)),
+        ("clf", clf),
+    ])
+
+
 def train_and_evaluate_models(X_train, y_train, X_test, y_test, preprocessor):
-    """Each model is wrapped in a single Pipeline: preprocessor -> SMOTE ->
-    classifier. SMOTE is applied *inside* the pipeline so it only ever
-    resamples the training fold -- it never touches X_test, and (if you
-    later add cross_val_score) it never touches held-out CV folds either.
-    """
+    """Baseline run: every model with default hyperparameters, one
+    train/test split. See src/tuning.py for the tuned, cross-validated
+    comparison."""
     os.makedirs(MODEL_DIR, exist_ok=True)
     results = {}
     best_name, best_pipeline, best_score = None, None, -1
 
     for name, clf in build_models().items():
-        pipeline = ImbPipeline(steps=[
-            ("preprocess", preprocessor),
-            ("smote", SMOTE(random_state=RANDOM_STATE)),
-            ("clf", clf),
-        ])
+        pipeline = make_pipeline(preprocessor, clf)
 
         print(f"\n{'=' * 60}\nTraining: {name}\n{'=' * 60}")
         pipeline.fit(X_train, y_train)

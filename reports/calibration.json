@@ -1,0 +1,49 @@
+{
+  "breakeven_threshold": 0.125,
+  "test_metrics": {
+    "Uncalibrated": {
+      "brier": 0.07172417640686035,
+      "log_loss": 0.23806680738925934,
+      "pr_auc": 0.7465043967652144,
+      "mean_predicted_p_purchase": 0.1981186717748642,
+      "actual_purchase_rate": 0.15649324047521507
+    },
+    "Isotonic": {
+      "brier": 0.0693670433973516,
+      "log_loss": 0.22355482078408137,
+      "pr_auc": 0.7466442932184668,
+      "mean_predicted_p_purchase": 0.15948546969276525,
+      "actual_purchase_rate": 0.15649324047521507
+    },
+    "Sigmoid": {
+      "brier": 0.07063821146107166,
+      "log_loss": 0.23767501368883936,
+      "pr_auc": 0.7470048387030955,
+      "mean_predicted_p_purchase": 0.15883476280213965,
+      "actual_purchase_rate": 0.15649324047521507
+    }
+  },
+  "profit_per_1000": {
+    "uncalibrated_at_breakeven": {
+      "threshold": 0.125,
+      "profit_per_1000_sessions": 842.4825891028268,
+      "share_of_sessions_targeted": 0.6468660385088079,
+      "abandoners_reached_pct": 0.7542496357455075,
+      "buyers_given_unneeded_discount_pct": 0.06806282722513089
+    },
+    "isotonic_at_breakeven": {
+      "threshold": 0.125,
+      "profit_per_1000_sessions": 872.5931995083982,
+      "share_of_sessions_targeted": 0.6833265055305203,
+      "abandoners_reached_pct": 0.7950461389023799,
+      "buyers_given_unneeded_discount_pct": 0.08115183246073299
+    },
+    "uncalibrated_at_empirical_threshold": {
+      "threshold": 0.14,
+      "profit_per_1000_sessions": 829.5780417861532,
+      "share_of_sessions_targeted": 0.6677591151167555,
+      "abandoners_reached_pct": 0.7746478873239436,
+      "buyers_given_unneeded_discount_pct": 0.09162303664921466
+    }
+  }
+}

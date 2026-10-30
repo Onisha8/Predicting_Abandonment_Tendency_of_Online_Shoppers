@@ -19,6 +19,8 @@ FIGURES_DIR = os.path.join(REPORTS_DIR, "figures")
 CV_RESULTS_PATH = os.path.join(REPORTS_DIR, "cv_model_comparison.csv")
 TUNED_PARAMS_PATH = os.path.join(REPORTS_DIR, "tuned_params.json")
 PROFIT_RESULTS_PATH = os.path.join(REPORTS_DIR, "profit_threshold.json")
+EXPLAIN_RESULTS_PATH = os.path.join(REPORTS_DIR, "feature_importance.json")
+CALIBRATION_RESULTS_PATH = os.path.join(REPORTS_DIR, "calibration.json")
 
 TEST_SIZE = 0.2
 RANDOM_STATE = 42
